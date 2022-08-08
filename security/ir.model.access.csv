@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mb_uface202_device,mb_uface202.device,model_mb_uface202_device,base.group_user,1,1,1,1
+access_mb_uface202_log,access_mb_uface202_log,model_mb_uface202_log,base.group_user,1,1,1,1
+access_mb_uface202_pool,access_mb_uface202_pool,model_mb_uface202_pool,base.group_user,1,1,1,1

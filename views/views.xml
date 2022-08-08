@@ -1,0 +1,191 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="mb_uface202.device">
+      <field name="name">mb_uface202 device</field>
+      <field name="model">mb_uface202.device</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="ip"/>
+          <field name="port"/>
+          <field name="position"/>
+          <field name="company"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="mb_uface202_device_wiz">
+      <field name="name">Device</field>
+      <field name="model">mb_uface202.device</field>
+      <field name="arch" type="xml">
+        <form string="Calling">
+          <header>
+            <button name="restart" type="object" string="Restart" class="btn-warning"/>
+            <button name="poweroff" type="object" string="Poweroff" class="btn-warning"/>
+            <button name="get" type="object" string="Transfer" class="btn-warning"/>
+          </header>
+          <group>
+          <field name="name"/>
+          <field name="ip"/>
+          <field name="port"/>
+          <field name="position"/>
+          <field name="company"/>
+          </group>
+          <footer>
+            <button name="calling" type="object" string="Cal Device" class="btn-primary"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mb_uface202.action_window">
+      <field name="name">mb_uface202 device</field>
+      <field name="res_model">mb_uface202.device</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+
+
+    <record model="ir.ui.view" id="mb_uface202.log_list">
+      <field name="name">Log</field>
+      <field name="model">mb_uface202.log</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="uid"/>
+          <field name="name"/>
+          <field name="os_time"/>
+          <field name="zk_time"/>
+          <field name="done"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="mb_uface202_log_wiz">
+      <field name="name">log</field>
+      <field name="model">mb_uface202.log</field>
+      <field name="arch" type="xml">
+        <form string="Calling">
+          <group>
+            <field name="uid"/>
+            <field name="name"/>
+            <field name="os_time"/>
+            <field name="zk_time"/>
+            <field name="done"/>
+          </group>
+          <footer>
+            <button name="write" type="object" string="write" class="btn-primary"/>
+
+
+          </footer>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="mb_uface202_log_action">
+      <field name="name">Log Write</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mb_uface202.log</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="mb_uface202_log_wiz"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="mb_uface202.action_log_window">
+      <field name="name">Log</field>
+      <field name="res_model">mb_uface202.log</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+
+
+    <record model="ir.ui.view" id="mb_uface202.pool_list">
+      <field name="name">pool</field>
+      <field name="model">mb_uface202.pool</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="uid"/>
+          <field name="name"/>
+          <field name="os_time"/>
+          <field name="zk_time"/>
+          <field name="done"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="mb_uface202_pool_wiz">
+      <field name="name">pool</field>
+      <field name="model">mb_uface202.pool</field>
+      <field name="arch" type="xml">
+        <form string="Calling">
+          <group>
+            <field name="uid"/>
+            <field name="name"/>
+            <field name="os_time"/>
+            <field name="zk_time"/>
+            <field name="done"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="mb_uface202_log_action">
+      <field name="name">Log Write</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mb_uface202.pool</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="mb_uface202_pool_wiz"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="mb_uface202.action_pool_window">
+      <field name="name">pool</field>
+      <field name="res_model">mb_uface202.pool</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="mb_uface202.action_server">
+      <field name="name">mb_uface202 server</field>
+      <field name="model_id" ref="model_mb_uface202_mb_uface202"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="mb_uface202" id="mb_uface202.menu_root"/>
+-->
+    <!-- menu categories -->
+
+    <menuitem name="Settings" id="mb_uface202.settings" parent="hr_attendance.menu_hr_attendance_root" />
+    <menuitem name="Devices" id="mb_uface202.device_menu" parent="mb_uface202.settings" sequence="100" action="mb_uface202.action_window"/>
+    <menuitem name="Log" id="mb_uface202.device_log_menu" parent="mb_uface202.settings" sequence="101" action="mb_uface202.action_log_window"/>
+    <!--
+    <menuitem name="Pool" id="mb_uface202.device_pool_menu" parent="mb_uface202.settings" sequence="101" action="mb_uface202.action_pool_window"/>
+    -->
+<!--
+    <menuitem name="Menu 1" id="mb_uface202.menu_1" parent="mb_uface202.menu_root"/>
+    <menuitem name="Menu 2" id="mb_uface202.menu_2" parent="mb_uface202.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="mb_uface202.menu_1_list" parent="mb_uface202.menu_1"
+              action="mb_uface202.action_window"/>
+    <menuitem name="Server to list" id="mb_uface202" parent="mb_uface202.menu_2"
+              action="mb_uface202.action_server"/>
+-->
+  </data>
+</odoo>
